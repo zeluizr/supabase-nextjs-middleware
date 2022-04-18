@@ -29,7 +29,7 @@ const Login: NextPage = () => {
         <>
           <h1>Welcome, {user.email}!</h1>
           <div>
-            Now you can see hidden pages: <Link href="/app/hidden">/hidden-page</Link>
+            Now you can see hidden pages: <Link href="/app/hidden-page">/hidden-page</Link>
           </div>
           <button
             onClick={async () => {
@@ -38,7 +38,7 @@ const Login: NextPage = () => {
                 await supabase.auth.signOut()
                 await fetch("/api/auth/remove", {
                   method: "GET",
-                  credentials: "same-origin"
+                  credentials: "same-origin",
                 })
               } finally {
                 setLoading(false)
@@ -57,7 +57,8 @@ const Login: NextPage = () => {
               setLoading(true)
               try {
                 await supabase.auth.signIn({
-                  provider: "google",
+                  email: "zeluizr@me.com",
+                  password: "123456",
                 })
               } finally {
                 setLoading(false)

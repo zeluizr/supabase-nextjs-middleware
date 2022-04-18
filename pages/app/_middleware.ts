@@ -2,7 +2,6 @@ import type { NextFetchEvent, NextRequest } from "next/server"
 import { supabase } from "../../lib/supabase"
 import { NextResponse } from "next/server"
 
-
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   //The line below isn't working as expected, see README.tx
   //let authResult = await supabase.auth.api.getUserByCookie(req)
